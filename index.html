@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>YOLOv8 - Chariot Tracker</title>
+    <script>
+        async function fetchDetections() {
+            const response = await fetch('/detections');
+            const data = await response.json();
+            const container = document.getElementById("detection-log");
+            container.innerHTML = "";
+            data.slice().reverse().forEach(d => {
+                const p = document.createElement("p");
+                p.textContent = `Chariot détecté à ${d.timestamp}`;
+                container.appendChild(p);
+            });
+        }
+
+        setInterval(fetchDetections, 1000); // Rafraîchit chaque seconde
+    </script>
+</head>
+<body>
+    <h1>Détection en temps réel</h1>
+    <img src="{{ url_for('video') }}" width="800">
+    <h2>🛒 Detections de Chariots :</h2>
+    <div id="detection-log" style="max-height: 200px; overflow-y: scroll; border: 1px solid black; padding: 10px;"></div>
+</body>
+</html>
