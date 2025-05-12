@@ -2,11 +2,11 @@ from flask import Flask, render_template, Response, jsonify
 from ultralytics import YOLO
 import cv2
 import datetime
-
+import os
 app = Flask(__name__)
 
 # Charger le modèle YOLOv8
-model = YOLO('best.pt')  # Remplace par ton modèle entraîné
+model = YOLO('bestyolov8m.pt')  # Remplace par ton modèle entraîné
 conf_threshold = 0.3
 
 # Stockage des détections de chariots
@@ -44,7 +44,12 @@ def gen_frames():
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    # Add this to app.py before running
+    print(f"Image exists: {os.path.exists('static/images/one.jpg')}")
+    return render_template('home.html')
+
+# In app.py add this temporary route
+
 
 @app.route('/video')
 def video():

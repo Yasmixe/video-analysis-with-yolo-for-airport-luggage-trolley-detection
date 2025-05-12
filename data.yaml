@@ -1,21 +1,5 @@
-train: C:/Users/yasmi/Documents/detection/augmented/training
-val: C:/Users/yasmi/Documents/detection/augmented/val
+train: C:/Users/yasmi/Documents/detection/Airport-Trolley-aeroportalgerV1/train/images
+val: C:/Users/yasmi/Documents/detection/Airport-Trolley-aeroportalgerV1/valid/images
 
-nc: 16
-names:
-  - dog
-  - person
-  - cat
-  - tv
-  - car
-  - meatballs
-  - marinara sauce
-  - tomato soup
-  - chicken noodle soup
-  - french onion soup
-  - chicken breast
-  - ribs
-  - pulled pork
-  - hamburger
-  - cavity
-  - chariot
+nc: 1
+names: ['chariot']
